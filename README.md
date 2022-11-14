@@ -11,12 +11,12 @@
     - ng serve
 
         (Requires: nodejs, npm, Docker, Angular )
-        
+
     3- To run docker file please use the following command:
 
     - docker compose up 
 
-    3- According the time please consider the following: 
+    4- According the time please consider the following: 
     
         - I was using Iphone 12 pro device as a responsive similator. 
 
@@ -26,7 +26,7 @@
 
          (Improves): I will write a test fuction to make sure there is no missing declarations or functionality errors in the component.
 
-    4- Kindly note that most of the time the API was down so please check the network tab through the developer tool.
+    5- Kindly note that most of the time the API was down so please check the network tab through the developer tool.
 
 
 
