@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="row">
+        <header>
+            <!-- Filter by Gender -->
+            <mat-form-field appearance="fill">
+                <mat-label>Filter by Gender</mat-label>
+                <mat-select #gender [(ngModel)]="selected" (ngModelChange)="filterBy(gender.value, nationality.value)">
+                    <mat-option name="gender" value=" ">None</mat-option>
+                    <mat-option name="gender" value="male">Male</mat-option>
+                    <mat-option name="gender" value="female">Female</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <!-- Filter by Nationality -->
+            <mat-form-field appearance="fill">
+                <mat-label>Filter by Nationality</mat-label>
+                <mat-select #nationality  [(ngModel)]="selected" (ngModelChange)="filterBy(gender.value, nationality.value)" >
+                    <mat-option *ngFor="let nationality of nationalityList" name="Nationality" [value]="nationality">{{nationality}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <!-- Download CSV -->
+            <button (click)="downloadCSV()" mat-raised-button color="primary">Download CSV</button>
+        </header>
+
+        <div *ngFor="let user of userList" class="col-3">
+            <div class="card">
+                <img class="card-img-top" src="{{user.picture.medium}} " alt="Avatar">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <b>
+                            <span *ngIf="user.gender === 'male'">
+                                <fa-icon [icon]="faMars"></fa-icon>
+                            </span>
+                            <span *ngIf="user.gender === 'female'">
+                                <fa-icon [icon]="faVenus"></fa-icon>
+                            </span>
+                          <span>{{user.name.title}}</span>  
+                        </b>
+                       <span> {{user.name.first}} {{user.name.last}}</span> 
+                    </h4>
+                    <p>
+                        <fa-icon [icon]="faEnvelope"></fa-icon>
+                       <span> {{user.email}}</span>
+                    </p>
+                    <p>
+                        <fa-icon [icon]="faHashtag"></fa-icon>
+                        <span>{{user.registered.age}}</span>
+                    </p>
+                    <p>
+                        <fa-icon [icon]="faPhone"></fa-icon>
+                        <span>{{user.phone}}</span>
+                    </p>
+                    <p>
+                        <fa-icon [icon]="faLocationDot"></fa-icon>
+                       <span class="address"> {{user.location.street.number}},{{user.location.street.name}},{{user.location.state}},{{user.location.city}},{{user.location.country}}</span>
+                    </p>
+                    <!-- {{registerPeriod}} -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

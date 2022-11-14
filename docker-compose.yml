@@ -1,0 +1,7 @@
+version: "3.7"
+services:
+  jumia-assignment:
+    container_name: jumia_assignment
+    build: .
+    ports:
+      - "4200:80"
